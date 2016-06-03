@@ -1,0 +1,59 @@
+<template>
+  <div id="note-editor">
+    <div v-html="activeNoteText|marked"></div>
+    <textarea :value="activeNoteText"
+              @input="editNote">
+    </textarea>
+  </div>
+</template>
+
+<script>
+import { editNote } from '../vuex/actions'
+
+export default {
+  vuex: {
+    getters: {
+      activeNoteText: state => state.activeNote.text
+    },
+    actions: {
+      editNote
+    }
+  }
+}
+</script>
+
+<style>
+#note-editor {
+  height: 100%;
+  margin-left: 380px;
+}
+
+textarea, #note-editor div {
+  display: inline-block;
+  width: 100%;
+  height: 49%;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 20px;
+	overflow: auto;
+}
+
+textarea {
+  height: 49%;
+  border: 0;
+  border-radius: 0;
+  border-top: 1px solid #B8B8B8;
+  resize: none;
+  outline: none;
+  background-color: #F0F0F0;
+  font-size: 20px;
+  padding: 20px;
+}
+
+code {
+  color: #f66;
+}
+
+</style>
