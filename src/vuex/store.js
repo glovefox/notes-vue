@@ -28,7 +28,14 @@ const mutations = {
   DELETE_NOTE (state) {
     let removeNote=state.notes.indexOf(state.activeNote)
     state.notes.$remove(state.activeNote)
-    state.activeNote = state.notes[removeNote-1]
+    if (removeNote!==0)
+    {
+      state.activeNote = state.notes[removeNote-1]
+    }
+    else
+    {
+      alert("已经删除完毕！")
+    }
   },
 
   TOGGLE_FAVORITE (state) {

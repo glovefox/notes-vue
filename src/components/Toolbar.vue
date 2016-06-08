@@ -63,7 +63,7 @@ position: relative;
 {
   border:1px solid #000;
 }
-  
+
 .starred {
   border:1px solid #000;
 }
@@ -76,6 +76,6 @@ line-height: 1;
 -moz-filter: invert(1);
 -o-filter: invert(1);
 -ms-filter: invert(1);
-filter: invert(1); 
+filter: invert(1);
 }
 </style>
