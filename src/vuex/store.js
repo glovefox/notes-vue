@@ -14,7 +14,7 @@ const state = {
 const mutations = {
   ADD_NOTE (state) {
     const newNote = {
-      text: '# 请用markdown语法或者html语法写笔记',
+      text: '# 请用markdown语法或者html语法书写笔记',
       favorite: false
     }
     state.notes.push(newNote)
@@ -27,7 +27,6 @@ const mutations = {
 
   DELETE_NOTE (state) {
     let removeNote=state.notes.indexOf(state.activeNote)
-    alert(removeNote+":"+state.notes.length)
    if (removeNote<0 & state.notes.length===0) {
       alert("请请增加新的笔记！")
     }
