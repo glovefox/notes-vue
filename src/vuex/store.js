@@ -14,7 +14,7 @@ const state = {
 const mutations = {
   ADD_NOTE (state) {
     const newNote = {
-      text: '# 我的新笔记',
+      text: '# 请用markdown语法或者html语法写笔记',
       favorite: false
     }
     state.notes.push(newNote)
@@ -27,14 +27,26 @@ const mutations = {
 
   DELETE_NOTE (state) {
     let removeNote=state.notes.indexOf(state.activeNote)
-    state.notes.$remove(state.activeNote)
-    if (removeNote!==0)
-    {
-      state.activeNote = state.notes[removeNote-1]
+    alert(removeNote+":"+state.notes.length)
+   if (removeNote<0 & state.notes.length===0) {
+      alert("请请增加新的笔记！")
     }
-    else
-    {
-      alert("已经删除完毕！")
+    else{
+    if (removeNote<0 & state.notes.length>0) {
+        alert("请选择需要删除的条目！")
+        state.activeNote = state.notes[state.notes.length-1]
+      }
+      else{
+        state.notes.$remove(state.activeNote)
+        if (state.notes.length>0&removeNote===0) {
+           state.activeNote = state.notes[removeNote]
+        }
+        else{
+          if (state.notes.length!==0&removeNote!==0) {
+            state.activeNote = state.notes[state.notes.length-1]
+          }
+        }
+      }
     }
   },
 
